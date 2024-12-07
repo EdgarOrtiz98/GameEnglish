@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="game-container">
-        <h1>Complete the sentence in English</h1>
-        <p id="sentence">I have ______ a book.</p>
+        <h1>Complete the sentence in English(Present Perfect)</h1>
+        <p id="sentence">I have ______ a book</p>
         <audio id="audio"></audio>
         <div class="options">
             <button class="option" onclick="checkAnswer(this)" data-correct="false">read</button>
@@ -21,6 +21,15 @@
         <button id="hint-btn" onclick="playAudio()">Listening helps</button>
         <p id="feedback1">Punctuation: <span id="score">0</span></p>
         <button id="reset-btn" onclick="resetGame()">Try again</button>
+    </div>
+    
+    <div class="instructions-container">
+        <h2>Instructions</h2>
+        <p>1 Attempts = 2</p>
+        <p>2 Attempts = 1</p>
+        <p>3 Attempts = 0.5</p>
+        <p>+4 Attempts = 0</p>
+        <p>Listening helps = 0.5</p>        
     </div>
     <script src="script.js"></script>
 </body>

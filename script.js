@@ -1,24 +1,97 @@
 // Arreglo con las preguntas, respuestas y rutas de audio
 const questions = [
-    // {
-    //     sentence: "I have ______ a book.",
-    //     options: ["read", "written", "sang", "danced"],
-    //     correct: "written",
-    //     audio: "audio/audio1.wav"
-    // },
-    // {
-    //     sentence: "She has ______ her homework.",
-    //     options: ["run", "drawn", "cooked", "done"],
-    //     correct: "done",
-    //     audio: "audio/question2.mp3"
-    // },
     {
-        sentence: "They have ______ the marathon.",
-        options: ["eaten", "slept", "completed", "watched"],
-        correct: "completed",
-        audio: "audio/question3.mp3"
+        sentence: "I have ______ been living here in Villahermosa since I borned.",
+        options: ["always", "never", "often", "since"],
+        correct: "always",
+        audio: "audio/audio1.mp3"
+    },
+    {
+        sentence: "We haven’t ______ Guillermo since 2022.",
+        options: ["see", "saw", "seen", "seeing"],
+        correct: "seen",
+        audio: "audio/audio2.mp3"
+    },
+    {
+        sentence: "Have you ______ Mike before?",
+        options: ["meet", "meets", "met", "meeting"],
+        correct: "met",
+        audio: "audio/audio3.mp3"
+    },
+    {
+        sentence: "They have ______ to Chilis every end of cycle since last year.",
+        options: ["gone", "goes", "went", "going"],
+        correct: "gone",
+        audio: "audio/audio4.mp3"
+    },
+    {
+        sentence: "He hasn’t ______ yet.",
+        options: ["arrived", "arrive", "arriving", "arrival"],
+        correct: "arrived",
+        audio: "audio/audio5.mp3"
+    },
+    {
+        sentence: "She has ______ left 5 minutes ago.",
+        options: ["just", "yet", "already", "recently"],
+        correct: "just",
+        audio: "audio/audio6.mp3"
+    },
+    {
+        sentence: "You haven’t ______ all your vegetables.",
+        options: ["eating", "eat", "eaten", "ate"],
+        correct: "eaten",
+        audio: "audio/audio7.mp3"
+    },
+    {
+        sentence: "Has she ______ any trouble with the project so far?",
+        options: ["have", "had", "has", "having"],
+        correct: "had",
+        audio: "audio/audio8.mp3"
+    },
+    {
+        sentence: "They haven’t ______ to any of our parties since they fought.",
+        options: ["come", "comes", "came", "coming"],
+        correct: "come",
+        audio: "audio/audio9.mp3"
+    },
+    {
+        sentence: "I haven’t ______ my homework yet.",
+        options: ["do", "did", "doing", "done"],
+        correct: "done",
+        audio: "audio/audio10.mp3"
+    },
+    {
+        sentence: "He has ______ brought bread last weekend.",
+        options: ["already", "just", "yet", "still"],
+        correct: "already",
+        audio: "audio/audio11.mp3"
+    },
+    {
+        sentence: "You have ______ the same for 5 years.",
+        options: ["had", "has", "have", "having"],
+        correct: "had",
+        audio: "audio/audio12.mp3"
+    },
+    {
+        sentence: "Haven’t we ______ done it?",
+        options: ["already", "just", "yet", "soon"],
+        correct: "already",
+        audio: "audio/audio13.mp3"
+    },
+    {
+        sentence: "Hasn’t he ______ yet?",
+        options: ["arrived", "arrive", "arrives", "arriving"],
+        correct: "arrived",
+        audio: "audio/audio14.mp3"
+    },
+    {
+        sentence: "Have I ______ the door?",
+        options: ["lock", "locked", "locks", "locking"],
+        correct: "locked",
+        audio: "audio/audio15.mp3"
     }
 ];
+
 
 let currentQuestionIndex = 0; // Índice de la pregunta actual
 let score = 0; // Puntuación total
@@ -103,6 +176,10 @@ function nextQuestion() {
         document.getElementById("feedback1").textContent = `Final score: ${score}`;
         document.getElementById("feedback1").style.color = "#007bff";
         document.getElementById("reset-btn").style.visibility = "visible";
+        document.querySelector(".instructions-container").style.visibility = "hidden";
+        document.body.style.marginTop = "0px";
+        document.body.style.marginLeft = "200px";
+        document.body.style.alignItems = "center";
     }
 }
 
