@@ -92,11 +92,20 @@ const questions = [
     }
 ];
 
-
 let currentQuestionIndex = 0; // Índice de la pregunta actual
 let score = 0; // Puntuación total
 let attempts = 0; // Intentos por pregunta
 let usedHint = false; // Indica si se usó la pista
+
+const gameArea = document.getElementById('gameArea'); //El div donde aparecen las preguntas
+const homepage = document.getElementById('home-page'); //div de inicio (donde aparece el boton de empezar y demas)
+startButton.addEventListener('click', startGame); //añadir al boton para empezar la funcion de empezar el juego
+
+//funcion para empezar el juego
+function startGame() {
+    homepage.style.display = 'none';
+    gameArea.style.display = 'block';
+}
 
 // Muestra la pregunta actual
 function loadQuestion() {
@@ -122,6 +131,12 @@ function loadQuestion() {
 
 // Verifica si la respuesta seleccionada es correcta
 function checkAnswer(button) {
+    const scoreElement = document.getElementById("score");
+    if (!scoreElement) {
+        console.error("Elemento #score no encontrado.");
+        return;
+    }
+
     const isCorrect = button.getAttribute("data-correct") === "true";
 
     if (isCorrect) {
@@ -173,7 +188,7 @@ function nextQuestion() {
         document.querySelector(".options").style.display = "none";
         document.getElementById("hint-btn").style.display = "none";
         document.getElementById("feedback").textContent = "";
-        document.getElementById("feedback1").textContent = `Final score: ${score}`;
+        document.getElementById("feedback1").innerHTML = `Final score: <span id="score">${score}</span>`;
         document.getElementById("feedback1").style.color = "#007bff";
         document.getElementById("reset-btn").style.visibility = "visible";
         document.querySelector(".instructions-container").style.visibility = "hidden";
@@ -184,8 +199,29 @@ function nextQuestion() {
 }
 
 // Reinicia el juego recargando la página
+// Reinicia el juego directamente al área de preguntas
 function resetGame() {
-    location.reload();
+    // Reiniciar variables
+    currentQuestionIndex = 0;
+    score = 0;
+    attempts = 0;
+    usedHint = false;
+
+    // Actualizar elementos del DOM
+    document.getElementById("feedback1").innerHTML = `Score: <span id="score">${score}</span>`;
+    document.getElementById("feedback1").style.color = "inherit";
+    document.getElementById("options").style.display = "flex";
+    document.getElementById("hint-btn").style.display = "inline-block";
+    document.getElementById("feedback").textContent = "";
+    document.getElementById("reset-btn").style.visibility = "hidden";
+    document.querySelector(".instructions-container").style.visibility = "visible";
+
+    // Mostrar el área de juego y ocultar la página de inicio si está visible
+    homepage.style.display = 'none';
+    gameArea.style.display = 'block';
+
+    // Cargar la primera pregunta
+    loadQuestion();
 }
 
 // Inicializa el juego

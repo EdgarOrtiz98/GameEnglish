@@ -7,11 +7,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="game-container">
+    <div class="game-container" id="home-page">
+        <button class="button-17" role="button" onclick="window.location.href='flashcard.html';"> Review</button>
+        <h1 id="t" class="t">English Game</h1>
+        <!-- HTML !-->
+    <!-- HTML !-->
+        <div class="container" id="startButton">
+            <a class="button" href="#" style="--color:#1e9bff;">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Start
+            </a>
+          </div>
+    </div>
+    <div class="game-container" style="display:none;" id="gameArea">
         <h1>Complete the sentence in English(Present Perfect)</h1>
         <p id="sentence">I have ______ a book</p>
         <audio id="audio"></audio>
-        <div class="options">
+        <div class="options" id="options">
             <button class="option" onclick="checkAnswer(this)" data-correct="false">read</button>
             <button class="option" onclick="checkAnswer(this)" data-correct="true">written</button>
             <button class="option" onclick="checkAnswer(this)" data-correct="false">sang</button>
@@ -19,12 +34,12 @@
         </div>
         <p id="feedback"></p>
         <button id="hint-btn" onclick="playAudio()">Listening helps</button>
-        <p id="feedback1">Punctuation: <span id="score">0</span></p>
+        <p id="feedback1">Score: <span id="score">0</span></p>
         <button id="reset-btn" onclick="resetGame()">Try again</button>
     </div>
     
     <div class="instructions-container">
-        <h2>Instructions</h2>
+        <h2>PUNTUATION BY ATTEMPTS</h2>
         <p>1 Attempts = 2</p>
         <p>2 Attempts = 1</p>
         <p>3 Attempts = 0.5</p>
