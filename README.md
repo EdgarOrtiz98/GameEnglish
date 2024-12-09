@@ -8,7 +8,7 @@ Este proyecto es un juego interactivo para practicar el uso del presente perfect
 - [Requisitos](#requisitos)
 - [Instalación](#instalación)
 - [Uso](#uso)
-- [Vista previa](#Vista)
+- [Vista previa](#vista-previa)
 
 ## Descripción
 
